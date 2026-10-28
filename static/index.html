@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de administración de servidores dinámicos</title>
+  <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="marca">
+      <span class="marca-icono" aria-hidden="true"></span>
+      <span>Servidores</span>
+    </div>
+    <p id="estado-api" class="estado-api">Conectando</p>
+  </header>
+
+  <main class="contenido">
+    <div class="cabecera">
+      <h1>Panel de administración de servidores dinámicos</h1>
+      <p class="descripcion">Distribuye las solicitudes entre los servidores registrados.</p>
+    </div>
+
+    <p id="aviso" class="aviso oculto" role="status"></p>
+    <p id="banner-inactivos" class="aviso banner-inactivos oculto" role="status">No hay servidores activos</p>
+
+    <section class="resumen" aria-labelledby="titulo-resumen">
+      <h2 id="titulo-resumen">Resumen del sistema</h2>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <p class="tarjeta-etiqueta">Solicitudes atendidas</p>
+          <p id="total-solicitudes" class="tarjeta-valor">—</p>
+        </article>
+        <article class="tarjeta">
+          <p class="tarjeta-etiqueta">Servidores configurados</p>
+          <p id="total-servidores" class="tarjeta-valor">—</p>
+        </article>
+        <article class="tarjeta">
+          <p class="tarjeta-etiqueta">Servidores activos</p>
+          <p id="servidores-activos" class="tarjeta-valor">—</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="rejilla">
+      <section class="seccion" aria-labelledby="titulo-servidores">
+        <div class="seccion-cabecera">
+          <h2 id="titulo-servidores">Listado de servidores</h2>
+          <button id="btn-actualizar" type="button">Actualizar</button>
+        </div>
+        <div class="tabla-contenedor">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Puerto</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpo-servidores">
+              <tr>
+                <td colspan="3" class="vacio">Cargando</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="seccion" aria-labelledby="titulo-estadisticas">
+        <h2 id="titulo-estadisticas">Estadísticas</h2>
+        <div id="lista-estadisticas" class="estadisticas">
+          <p class="vacio">Cargando</p>
+        </div>
+      </section>
+
+      <section class="seccion" aria-labelledby="titulo-solicitudes">
+        <div class="seccion-cabecera">
+          <h2 id="titulo-solicitudes">Gestión de solicitudes</h2>
+          <button id="btn-solicitar" type="button" class="boton-principal">Enviar solicitud</button>
+        </div>
+        <article id="resultado" class="resultado" aria-live="polite">
+          <p class="resultado-vacio">Sin solicitudes</p>
+        </article>
+      </section>
+
+      <section class="seccion" aria-labelledby="titulo-mensajes">
+        <h2 id="titulo-mensajes">Mensajes del sistema</h2>
+        <div id="mensajes" class="mensajes"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

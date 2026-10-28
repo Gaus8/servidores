@@ -1,0 +1,416 @@
+:root {
+  --ink: #171a21;
+  --muted: #667085;
+  --bg: #eef1f4;
+  --card: #ffffff;
+  --line: #e4e7ec;
+  --teal: #0e7490;
+  --teal-dark: #0b5f75;
+  --ok: #157347;
+  --ok-bg: #e8f6ee;
+  --bad: #b42318;
+  --bad-bg: #fdeceb;
+  --warn: #8a5a00;
+  --warn-bg: #fff6e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.4;
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1.25rem;
+  background: #111418;
+  color: #f4f6f8;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.marca-icono {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, transparent 42%, #fff 42% 58%, transparent 58%),
+    linear-gradient(90deg, transparent 42%, #fff 42% 58%, transparent 58%),
+    var(--teal);
+}
+
+.estado-api {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  color: #c5ccd6;
+  font-size: 0.92rem;
+}
+
+.estado-api::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #9aa3af;
+}
+
+.estado-api.ok {
+  color: #d8ffe8;
+}
+
+.estado-api.ok::before {
+  background: #3ddc84;
+}
+
+.estado-api.error {
+  color: #ffd5d1;
+}
+
+.estado-api.error::before {
+  background: #ff6b60;
+}
+
+.contenido {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 1.25rem auto 2.5rem;
+}
+
+.cabecera h1 {
+  margin: 0 0 0.2rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.descripcion {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.resumen h2,
+.seccion h2 {
+  margin-bottom: 0.75rem;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.tarjeta,
+.seccion {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.tarjeta {
+  padding: 0.95rem 1rem 0.8rem;
+}
+
+.tarjeta-etiqueta {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.tarjeta-valor {
+  margin: 0;
+  font-size: 1.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.9fr);
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  align-items: start;
+}
+
+.seccion {
+  padding: 1rem;
+}
+
+.seccion-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.seccion-cabecera h2 {
+  margin-bottom: 0;
+}
+
+button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.45rem 0.75rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f7f8fa;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(14, 116, 144, 0.28);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.boton-principal {
+  border-color: var(--teal-dark);
+  background: var(--teal);
+  color: #fff;
+}
+
+.boton-principal:hover {
+  background: var(--teal-dark);
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.7rem 0.35rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.fila-inactivo {
+  color: #6d2c27;
+}
+
+.puerto {
+  font-family: Consolas, "Cascadia Mono", monospace;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.badge::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge-activo {
+  color: var(--ok);
+}
+
+.badge-inactivo {
+  color: var(--bad);
+}
+
+.resultado {
+  min-height: 4.5rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: 10px;
+  background: #f6f7f9;
+}
+
+.resultado.ok {
+  background: var(--ok-bg);
+}
+
+.resultado.error {
+  background: var(--bad-bg);
+}
+
+.resultado h3,
+.resultado p {
+  margin: 0;
+}
+
+.resultado h3 {
+  margin-bottom: 0.2rem;
+  font-size: 1.05rem;
+}
+
+.resultado-detalle,
+.resultado-vacio,
+.vacio {
+  color: var(--muted);
+}
+
+.resultado-total {
+  margin-top: 0.45rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.estadisticas {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.barra-fila {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 1fr) minmax(4rem, 1.3fr) auto;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.barra-via {
+  height: 0.45rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7eaee;
+}
+
+.barra-relleno {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--teal);
+}
+
+.barra-cantidad {
+  min-width: 1.5ch;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.aviso {
+  margin: 0 0 0.75rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.aviso.oculto {
+  display: none;
+}
+
+.aviso.error {
+  color: var(--bad);
+  background: var(--bad-bg);
+}
+
+.aviso.warn,
+.banner-inactivos {
+  color: var(--warn);
+  background: var(--warn-bg);
+  border: 1px solid #f0d7a8;
+}
+
+.mensajes {
+  display: grid;
+  gap: 0.4rem;
+  min-height: 4.5rem;
+  max-height: 16rem;
+  overflow: auto;
+}
+
+.mensajes:empty::before {
+  content: "Sin actividad";
+  color: var(--muted);
+}
+
+.mensaje {
+  margin: 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  background: #f6f7f9;
+  font-size: 0.92rem;
+}
+
+.mensaje-ok {
+  background: var(--ok-bg);
+}
+
+.mensaje-error {
+  background: var(--bad-bg);
+}
+
+.mensaje-warn {
+  background: var(--warn-bg);
+}
+
+@media (max-width: 860px) {
+  .tarjetas,
+  .rejilla,
+  .barra-fila {
+    grid-template-columns: 1fr;
+  }
+
+  .seccion-cabecera,
+  .barra {
+    align-items: flex-start;
+  }
+
+  .barra {
+    height: auto;
+    padding: 0.85rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .seccion-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
